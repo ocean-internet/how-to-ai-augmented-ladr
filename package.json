@@ -3,5 +3,13 @@
   "version": "1.0.0",
   "description": "How-to: Build an AI-augmented LADR CLI that drafts, grounds, and reviews ADRs. Learn multi-stage prompting, schema + guardrails, retrieval (RAG), judge scoring, and testing.",
   "author": "Andy Weir <andy@andyweir.consulting>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "husky": "^9.1.7",
+    "pinst": "^3.0.0"
+  },
+  "scripts": {
+    "postinstall": "husky",
+    "test": "echo \"Hello World\""
+  }
 }
