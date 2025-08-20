@@ -2,6 +2,10 @@
 
 > How-to: Build an AI-augmented LADR CLI that drafts, grounds, and reviews ADRs. Learn multi-stage prompting, schema + guardrails, retrieval (RAG), judge scoring, and testing.
 
+## Inspiration
+
+- [Using generative AI as an architect buddy for creating architecture decision records](https://handsonarchitects.com/blog/2025/using-generative-ai-as-architect-buddy-for-adrs/)
+
 ## Further Reading
 
 - [Agents: Chip Huyen](https://huyenchip.com/2025/01/07/agents.html)
