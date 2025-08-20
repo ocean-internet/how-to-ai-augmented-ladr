@@ -1,0 +1,7 @@
+{
+  "name": "how-to-ai-augmented-ladr",
+  "version": "1.0.0",
+  "description": "How-to: Build an AI-augmented LADR CLI that drafts, grounds, and reviews ADRs. Learn multi-stage prompting, schema + guardrails, retrieval (RAG), judge scoring, and testing.",
+  "author": "Andy Weir <andy@andyweir.consulting>",
+  "license": "MIT"
+}
