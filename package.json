@@ -10,7 +10,11 @@
     "test": "vitest"
   },
   "lint-staged": {
-    "*": "prettier -wu"
+    "!*.{js,mjs,cjs,ts,mts,cts,json,md}": "prettier -wu",
+    "*.{js,mjs,cjs,ts,mts,cts,json,md}": [
+      "prettier -wu",
+      "eslint --cache --fix"
+    ]
   },
   "dependencies": {
     "dotenv": "^17.2.1",
