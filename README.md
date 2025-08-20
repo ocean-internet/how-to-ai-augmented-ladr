@@ -10,7 +10,7 @@
 
 Start with [Step 00: Set Up](/STEP_00.md) to make sure your machine can talk to a local model. Once that’s green, move on to Step 01.
 
-### 1 Clone and check out Step 00
+### 1. Clone and check out Step 00
 
 ```bash
 git clone git@github.com:ocean-internet/how-to-ai-augmented-ladr.git
@@ -18,7 +18,7 @@ cd how-to-ai-augmented-ladr
 git checkout step-00-setup
 ```
 
-### 2 Follow the step guide
+### 2. Follow the step guide
 
 Open [STEP_00.md](/STEP_00.md) in this branch and work through it:
 
@@ -28,7 +28,7 @@ Open [STEP_00.md](/STEP_00.md) in this branch and work through it:
 - Install Node (LTS) + enable Corepack, then yarn install
 - Run the smoke test: yarn test
 
-### 3 Verify the smoke test
+### 3. Verify the smoke test
 
 You should see tests that:
 
