@@ -25,12 +25,12 @@ By the end of this step, you will be able to:
 
 ## 🧠 Background
 
-**Why this matters:** We’re moving from “just generate something” to producing a proper ADR — learning how AI can help
+**Why this matters:** We're moving from "just generate something" to producing a proper ADR — learning how AI can help
 draft real engineering artefacts.
 
 **Key ideas**
 
-- **Titles matter:** a good ADR title captures both the solution and the problem — it’s the first thing readers see.
+- **Titles matter:** a good ADR title captures both the solution and the problem — it's the first thing readers see.
 - **Incremental refinement:** we extend test-driven prompting to not just structure, but content quality (options,
   decision, consequences, title).
 - **Trade-off:** collapsing everything into one prompt is simple, but quality depends heavily on how we phrase
@@ -85,8 +85,8 @@ yarn test
 ```
 
 **Expected:** the `Single Stage ADR` test **fails** — the output includes options, decision, and consequences, but the
-**title is too generic** (e.g., `# Database strategy for new services`).  
-Our test requires the title to also mention a **driver/problem** (like "cognitive load" or "ACID").
+**title is too generic** (e.g., `# Database strategy for new services`). This failure is expected — it shows the loop is
+working. The test nudges you to include a **driver/problem** (like "cognitive load" or "ACID") in the title.
 
 ### 3. Edit the prompts (make all tests pass)
 
@@ -155,11 +155,11 @@ This confirms the ADR now has a valid title (solution + problem), and all requir
 
 ## 🛠️ Troubleshooting
 
-- **Title is still too generic** → the prompt doesn’t instruct the model to include a problem/driver in the title →
-  **Fix:** update `prompts/single-stage-adr.md` to reinforce “solution + problem” in the title.
+- **Title is still too generic** → the prompt doesn't instruct the model to include a problem/driver in the title →
+  **Fix:** update `prompts/single-stage-adr.md` to reinforce "solution + problem" in the title.
 - **Options or consequences missing** → the MADR template was modified or not preserved in the prompt → **Fix:** restore
   `docs/decisions/adr-template-minimal.md` and re-run `yarn test`.
-- **Ollama error: model not found** → the model name in `.env` doesn’t match an installed model → **Fix:** run
+- **Ollama error: model not found** → the model name in `.env` doesn't match an installed model → **Fix:** run
   `ollama pull <model>` and check `.env` has `OLLAMA_MODEL=<model>`.
 
 ---
@@ -167,6 +167,8 @@ This confirms the ADR now has a valid title (solution + problem), and all requir
 ## ➡️ Next
 
 Continue to **Step 03 — Structured Output & MADR Schema**
+
+Here we'll add a schema layer so the ADR output isn't just "valid Markdown," but also machine-checked for structure.
 
 ```bash
 git checkout step-03-structured-output
