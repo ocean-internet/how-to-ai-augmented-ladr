@@ -7,7 +7,7 @@
 
 ## ⚡ TL;DR
 
-{{One or two sentences: what you’ll build + what you’ll learn.}}
+{{One or two sentences: what you'll build + what you'll learn.}}
 
 ---
 
