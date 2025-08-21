@@ -86,7 +86,7 @@ yarn test
 
 **Expected:** the `Single Stage ADR` test **fails** — the output includes options, decision, and consequences, but the
 **title is too generic** (e.g., `# Database strategy for new services`). This failure is expected — it shows the the
-test loop is working and nudging you to include a driver/problem (like ‘cognitive load’ or ‘ACID’) in the title.
+test loop is working and nudging you to include a driver/problem (like 'cognitive load' or 'ACID') in the title.
 
 ### 3. Edit the prompts (make all tests pass)
 
@@ -166,7 +166,7 @@ This confirms the ADR now has a valid title (solution + problem), and all requir
 
 ## ➡️ Next
 
-With your first proper ADR working end-to-end, you’re ready to add more guardrails.
+With your first proper ADR working end-to-end, you're ready to add more guardrails.
 
 Continue to **Step 03 — Structured Output & MADR Schema**
 
