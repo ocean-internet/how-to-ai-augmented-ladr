@@ -58,9 +58,10 @@ Complete **Step 00 - Set Up** ([STEP_00.md](./STEP_00.md)):
 
 In this step we connect everything together: a **system prompt**, a **task prompt**, and an **MADR template**.
 
-The prompts live in [prompts/system.md](./prompts/system.md) & [prompts/micro-adr.md](./prompts/micro-adr.md), and the
-MADR template we use is [docs/decisions/adr-template-minimal.md](./docs/decisions/adr-template-minimal.md) (**don’t edit
-this file** — it anchors the headings our tests expect).
+The prompts live in [prompts/system.md](./prompts/system.md) &
+[prompts/hello-world-adr.md](./prompts/hello-world-adr.md), and the MADR template we use is
+[docs/decisions/adr-template-minimal.md](./docs/decisions/adr-template-minimal.md) (**don’t edit this file** — it
+anchors the headings our tests expect).
 
 ### 1. Install dependencies
 
@@ -84,7 +85,7 @@ prints `Here is the ADR:` and then the title). The test requires the **first cha
 Open and adjust:
 
 - [prompts/system.md](./prompts/system.md) — system role and style
-- [prompts/micro-adr.md](./prompts/micro-adr.md) — task-specific instructions
+- [prompts/hello-world-adr.md](./prompts/hello-world-adr.md) — task-specific instructions
 
 Re-run the tests:
 
@@ -136,7 +137,7 @@ Look at the console output from the passing test.
 ## 🛠️ Troubleshooting
 
 - **`yarn test` fails with "missing headings"** → prompts are incomplete or too generic → **Fix:** edit
-  `prompts/system.md` and `prompts/micro-adr.md` to strengthen instructions, then re-run `yarn test`.
+  `prompts/system.md` and `prompts/hello-world-adr.md` to strengthen instructions, then re-run `yarn test`.
 - **`yarn test` fails with "connection refused" from Ollama** → Ollama daemon not running or host misconfigured →
   **Fix:** start with `ollama serve` (or `ollama ps` to check) and confirm `.env` contains the correct `OLLAMA_HOST`.
 - **Model not found** → the model in `.env` hasn’t been pulled yet → **Fix:** `ollama pull llama3:8b` (or whichever

@@ -10,7 +10,7 @@ const ADR_TEMPLATE = "adr-template-minimal";
 export async function createMicroAdr(title: string): Promise<string> {
   const [systemPrompt, adrPrompt, adrTemplate] = await Promise.all([
     getPrompt("system"),
-    getPrompt("micro-adr"),
+    getPrompt("hello-world-adr"),
     getTemplate(ADR_TEMPLATE),
   ]);
 
