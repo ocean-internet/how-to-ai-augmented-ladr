@@ -1,8 +1,8 @@
 import { describe, expect, it } from "vitest";
-import { createMicroAdr } from "../src/create-micro-adr";
+import { createMicroAdr } from "../src/create-hello-world-adr";
 
 describe("Hello World ADR", () => {
-  it("produces a Micro-ADR", async () => {
+  it("produces a hello-world-adr", async () => {
     const title = "Hello World ADR";
     const adr = await createMicroAdr(title);
 
@@ -15,9 +15,9 @@ describe("Hello World ADR", () => {
     // (Vitest captures stdout but shows it on failure; for success, it keeps logs compact)
     console.log(
       `
---- Micro-ADR Output ---
+--- Hello World ADR Output ---
 ${adr}
-------------------------
+------------------------------
 `,
     );
   }, 30_000);
