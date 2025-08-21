@@ -1,6 +1,7 @@
 # How-To: AI-Augmented Lightweight Architectural Decision Records (LADR)
 
-> How-to: Build an AI-augmented LADR CLI that drafts, grounds, and reviews ADRs. Learn multi-stage prompting, schema + guardrails, retrieval (RAG), judge scoring, and testing.
+> How-to: Build an AI-augmented LADR CLI that drafts, grounds, and reviews ADRs. Learn multi-stage prompting, schema +
+> guardrails, retrieval (RAG), judge scoring, and testing.
 
 ## Inspiration
 
@@ -8,7 +9,8 @@
 
 ## Getting Started
 
-Start with [Step 00: Set Up](/STEP_00.md) to make sure your machine can talk to a local model. Once that’s green, move on to Step 01.
+Start with [Step 00: Set Up](/STEP_00.md) to make sure your machine can talk to a local model. Once that's green, move
+on to Step 01.
 
 ### 1. Clone and check out Step 00
 
@@ -50,4 +52,6 @@ If either check fails, see **Troubleshooting** in [STEP_00.md](./STEP_00.md) for
 
 ![image](https://www.oreilly.com/covers/urn:orm:book:9781098166298/100w/)
 
-Recent breakthroughs in AI have not only increased demand for AI products, they've also lowered the barriers to entry for those who want to build AI products. The model-as-a-service... - Selection from AI Engineering [Book](https://www.oreilly.com/library/view/ai-engineering/9781098166298/)
+Recent breakthroughs in AI have not only increased demand for AI products, they've also lowered the barriers to entry
+for those who want to build AI products. The model-as-a-service... - Selection from AI Engineering
+[Book](https://www.oreilly.com/library/view/ai-engineering/9781098166298/)
