@@ -30,7 +30,7 @@ proves the end-to-end loop works before we add more structure and guardrails.
 
 **Key ideas**
 
-- **Test-driven prompting:** instead of “hoping” the model produces the right structure, we write tests and refine
+- **Test-driven prompting:** instead of "hoping" the model produces the right structure, we write tests and refine
   prompts until they pass.
 - **MADR as standard:** we use the Markdown Architectural Decision Records format to keep decisions consistent and
   recognisable.
@@ -135,9 +135,9 @@ Look at the console output from the passing test.
 
 ## 🛠️ Troubleshooting
 
-- **`yarn test` fails with “missing headings”** → prompts are incomplete or too generic → **Fix:** edit
+- **`yarn test` fails with "missing headings"** → prompts are incomplete or too generic → **Fix:** edit
   `prompts/system.md` and `prompts/micro-adr.md` to strengthen instructions, then re-run `yarn test`.
-- **`yarn test` fails with “connection refused” from Ollama** → Ollama daemon not running or host misconfigured →
+- **`yarn test` fails with "connection refused" from Ollama** → Ollama daemon not running or host misconfigured →
   **Fix:** start with `ollama serve` (or `ollama ps` to check) and confirm `.env` contains the correct `OLLAMA_HOST`.
 - **Model not found** → the model in `.env` hasn’t been pulled yet → **Fix:** `ollama pull llama3:8b` (or whichever
   model you set in `.env`).

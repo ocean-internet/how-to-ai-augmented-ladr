@@ -7,7 +7,8 @@
 
 ## ⚡ TL;DR
 
-Install Ollama, pull a small model, set `OLLAMA_MODEL` in `.env`, install Node/Yarn deps, and run a smoke test that verifies: (1) the daemon is reachable and (2) the required model is installed.
+Install Ollama, pull a small model, set `OLLAMA_MODEL` in `.env`, install Node/Yarn deps, and run a smoke test that
+verifies: (1) the daemon is reachable and (2) the required model is installed.
 
 ---
 
@@ -23,7 +24,8 @@ By the end of this step, you will be able to:
 
 ## 🧠 Background
 
-**Why this matters:** A reliable local runtime removes “works on my machine” variability and avoids cloud dependencies during learning.
+**Why this matters:** A reliable local runtime removes "works on my machine" variability and avoids cloud dependencies
+during learning.
 
 **Key ideas**
 
@@ -66,7 +68,8 @@ systemctl --user start ollama
 
 #### Windows (via WSL2)
 
-1. Install WSL: [https://learn.microsoft.com/en-us/windows/wsl/install](https://learn.microsoft.com/en-us/windows/wsl/install)
+1. Install WSL:
+   [https://learn.microsoft.com/en-us/windows/wsl/install](https://learn.microsoft.com/en-us/windows/wsl/install)
 2. Inside WSL (Ubuntu recommended), follow the Linux steps above.
 
 **Expected:** `ollama` is on your PATH.
@@ -165,8 +168,7 @@ ollama ps
 ollama list | grep llama3:8b
 ```
 
-**Passes if:** output contains `llama3:8b`.
-(Adjust the grep to your chosen model if different.)
+**Passes if:** output contains `llama3:8b`. (Adjust the grep to your chosen model if different.)
 
 ### 3. Smoke test passes
 
@@ -192,7 +194,8 @@ yarn test
 ## 🛠️ Troubleshooting
 
 - **Model won’t load** → insufficient RAM/VRAM → try a smaller quantised build (e.g., `llama3:8b-instruct:q4_0`).
-- **Ollama not reachable** → daemon not running → start with `ollama serve` (foreground) or `systemctl --user start ollama` (Linux).
+- **Ollama not reachable** → daemon not running → start with `ollama serve` (foreground) or
+  `systemctl --user start ollama` (Linux).
 - **WSL networking issues** → set `OLLAMA_HOST=http://127.0.0.1:11434` in `.env`.
 - **Node/Yarn issues** → confirm `node -v` (LTS); run `corepack enable` before `yarn install`.
 
