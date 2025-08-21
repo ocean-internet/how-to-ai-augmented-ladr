@@ -1,13 +1,15 @@
 # Step 02: Single Stage ADR
 
 **Branch**: `step-02-single-stage-adr`  
-**Goal**: {{1–2 lines describing the outcome.}}
+**Goal**: Generate a complete ADR (including title) from a context statement, using a local model (Ollama) and the MADR
+template.
 
 ---
 
 ## ⚡ TL;DR
 
-{{One or two sentences: what you’ll build + what you’ll learn.}}
+Generate a complete ADR (title + content) from a context statement with a local model.  
+Learn how stricter, test-driven checks guide prompt design and improve ADR quality.
 
 ---
 
@@ -15,23 +17,29 @@
 
 By the end of this step, you will be able to:
 
-- {{Outcome 1}}
-- {{Outcome 2}}
-- {{Outcome 3}}
+- Generate a complete ADR (including title) from a full context statement with a local model (Ollama).
+- Use incremental, test-driven refinement to evaluate and improve ADR quality (options, decision, consequences, title).
+- Explain how stricter checks (solution + problem in title) support an incremental architecture approach.
 
 ---
 
-## 🧠 Background (Optional)
+## 🧠 Background
 
-**Why this matters:** {{1 short sentence.}}
+**Why this matters:** We're moving from "just generate something" to producing a proper ADR — learning how AI can help
+draft real engineering artefacts.
 
 **Key ideas**
 
-- {{Idea 1}}
-- {{Idea 2}}
-- {{Constraint or trade-off}}
+- **Titles matter:** a good ADR title captures both the solution and the problem — it's the first thing readers see.
+- **Incremental refinement:** we extend test-driven prompting to not just structure, but content quality (options,
+  decision, consequences, title).
+- **Trade-off:** collapsing everything into one prompt is simple, but quality depends heavily on how we phrase
+  instructions.
 
-**Read more:** {{link 1}}, {{link 2}}
+**Read more:**
+
+- [MADR template and rationale](https://adr.github.io/madr/)
+- [Architecture Decision Records (Martin Fowler)](https://martinfowler.com/articles/architecture-decision-records.html)
 
 ---
 
@@ -77,8 +85,8 @@ yarn test
 ```
 
 **Expected:** the `Single Stage ADR` test **fails** — the output includes options, decision, and consequences, but the
-**title is too generic** (e.g., `# Database strategy for new services`).  
-Our test requires the title to also mention a **driver/problem** (like "cognitive load" or "ACID").
+**title is too generic** (e.g., `# Database strategy for new services`). This failure is expected — it shows the the
+test loop is working and nudging you to include a driver/problem (like 'cognitive load' or 'ACID') in the title.
 
 ### 3. Edit the prompts (make all tests pass)
 
@@ -105,44 +113,65 @@ yarn test
 
 ## 🧪 Evaluation
 
-### 1. {{Check 1}}
+### 1. Run the tests (initial failure)
 
 ```bash
-{{command}}
+yarn test
 ```
 
-**Passes if:** {{explicit success signal (e.g., `✓ 2 passed` or a specific line)}}
-
-### 2. {{Check 2}}
+**Passes if:** you see a failing assertion for the **title check**, e.g.:
 
 ```bash
-{{command}}
+FAIL  tests/create-single-stage-adr.test.ts > Single Stage ADR > title includes the chosen option and is a representative problem-solution summary
+AssertionError: Problem: cognitive load, acid, delivery, workload, expert: expected false to be truthy
 ```
 
-**Passes if:** {{explicit success signal}}
+This confirms the ADR is generated, but the **title is too generic**.
+
+### 2. Re-run after editing prompts
+
+```bash
+yarn test
+```
+
+**Passes if:** all tests succeed, e.g.:
+
+```bash
+✓ 4 passed
+```
+
+This confirms the ADR now has a valid title (solution + problem), and all required sections are present.
 
 ---
 
 ## ✅ Checklist
 
-- ⬜ {{Concrete state #1 (e.g., `File exists: docs/decisions/NNNN-*.md`)}}
-- ⬜ {{Concrete state #2 (e.g., `Prettier + markdownlint pass`)}}
-- ⬜ {{Quality gate (e.g., `Schema valid; chosenOption ∈ options`)}}
-- ⬜ {{ Reflection: one sentence about the key lesson - e.g. I can explain why offline-first matters}}
+- ⬜ I ran `yarn test` and the `Single Stage ADR` test passed
+- ⬜ I saw options, decision, consequences, and a title that includes both the chosen option and a problem/driver
+- ⬜ I did not edit `docs/decisions/adr-template-minimal.md`
+- ⬜ I saw how stricter tests (e.g. title checks) help guide prompt design
 
 ---
 
 ## 🛠️ Troubleshooting
 
-- **{{Symptom}}** → {{Cause}} → **Fix:** `{{command}}`
-- **{{Symptom}}** → {{Cause}} → **Fix:** `{{command}}`
+- **Title is still too generic** → the prompt doesn't instruct the model to include a problem/driver in the title →
+  **Fix:** update `prompts/single-stage-adr.md` to reinforce "solution + problem" in the title.
+- **Options or consequences missing** → the MADR template was modified or not preserved in the prompt → **Fix:** restore
+  `docs/decisions/adr-template-minimal.md` and re-run `yarn test`.
+- **Ollama error: model not found** → the model name in `.env` doesn't match an installed model → **Fix:** run
+  `ollama pull <model>` and check `.env` has `OLLAMA_MODEL=<model>`.
 
 ---
 
 ## ➡️ Next
 
-Continue to **Step {{NN+1}} — {{Next title}}**
+With your first proper ADR working end-to-end, you're ready to add more guardrails.
+
+Continue to **Step 03 — Structured Output & MADR Schema**
+
+Here we'll add a schema layer so the ADR output isn't just "valid Markdown," but also machine-checked for structure.
 
 ```bash
-git checkout step-{{NN+1}}-{{next-slug}}
+git checkout step-03-structured-output
 ```

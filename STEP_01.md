@@ -60,7 +60,7 @@ In this step we connect everything together: a **system prompt**, a **task promp
 
 The prompts live in [prompts/system.md](./prompts/system.md) &
 [prompts/hello-world-adr.md](./prompts/hello-world-adr.md), and the MADR template we use is
-[docs/decisions/adr-template-minimal.md](./docs/decisions/adr-template-minimal.md) (**don’t edit this file** — it
+[docs/decisions/adr-template-minimal.md](./docs/decisions/adr-template-minimal.md) (**don't edit this file** — it
 anchors the headings our tests expect).
 
 ### 1. Install dependencies
@@ -77,8 +77,9 @@ yarn install
 yarn test
 ```
 
-**Expected:** the `Hello World ADR` test **fails** — the output starts with extra text **before** the title (e.g., it
-prints `Here is the ADR:` and then the title). The test requires the **first character** of the response to be `#`.
+**Expected:** the `Hello World ADR` test **fails** — the output includes some extra text before the title (e.g., it
+prints `Here is the ADR:` and then the heading). This failure is expected — it shows the test loop is working and
+catching formatting issues. The goal is to refine the prompt so the very first character of the response is `#`.
 
 ### 3. Edit the prompts (make all tests pass)
 
@@ -140,14 +141,17 @@ Look at the console output from the passing test.
   `prompts/system.md` and `prompts/hello-world-adr.md` to strengthen instructions, then re-run `yarn test`.
 - **`yarn test` fails with "connection refused" from Ollama** → Ollama daemon not running or host misconfigured →
   **Fix:** start with `ollama serve` (or `ollama ps` to check) and confirm `.env` contains the correct `OLLAMA_HOST`.
-- **Model not found** → the model in `.env` hasn’t been pulled yet → **Fix:** `ollama pull llama3:8b` (or whichever
+- **Model not found** → the model in `.env` hasn't been pulled yet → **Fix:** `ollama pull llama3:8b` (or whichever
   model you set in `.env`).
 
 ---
 
 ## ➡️ Next
 
-Continue to **Step 02 — Single-Stage ADR**
+With a working steel thread in place, you're ready to go further.
+
+Continue to **Step 02 — Single Stage ADR**, where instead of just passing a title, you'll provide full context — and the
+model will generate both the title and the ADR in one go.
 
 ```bash
 git checkout step-02-single-stage-adr

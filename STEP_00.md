@@ -48,6 +48,11 @@ during learning.
 
 ## 🧭 Walkthrough
 
+This step is all about setup — making sure your environment is ready to run ADR generation locally.
+
+Don't worry if you've never used Ollama or local LLMs before: the checks here are simple, and the tests will confirm
+everything is wired up correctly.
+
 ### 1. Install Ollama
 
 #### macOS
@@ -193,7 +198,7 @@ yarn test
 
 ## 🛠️ Troubleshooting
 
-- **Model won’t load** → insufficient RAM/VRAM → try a smaller quantised build (e.g., `llama3:8b-instruct:q4_0`).
+- **Model won't load** → insufficient RAM/VRAM → try a smaller quantised build (e.g., `llama3:8b-instruct:q4_0`).
 - **Ollama not reachable** → daemon not running → start with `ollama serve` (foreground) or
   `systemctl --user start ollama` (Linux).
 - **WSL networking issues** → set `OLLAMA_HOST=http://127.0.0.1:11434` in `.env`.
@@ -203,7 +208,9 @@ yarn test
 
 ## ➡️ Next
 
-Continue to **Step 01 — Hello World (Guardrails)**
+With your environment ready, you're set to generate your very first ADR.
+
+Continue to **Step 01 — Hello World ADR**, where we'll create a simple steel thread from prompt → model → ADR.
 
 ```bash
 git checkout step-01-hello-world-guardrails
