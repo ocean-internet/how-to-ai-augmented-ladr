@@ -48,6 +48,11 @@ during learning.
 
 ## 🧭 Walkthrough
 
+This step is all about setup — making sure your environment is ready to run ADR generation locally.
+
+Don’t worry if you’ve never used Ollama or local LLMs before: the checks here are simple, and the tests will confirm
+everything is wired up correctly.
+
 ### 1. Install Ollama
 
 #### macOS
@@ -203,7 +208,9 @@ yarn test
 
 ## ➡️ Next
 
-Continue to **Step 01 — Hello World (Guardrails)**
+With your environment ready, you’re set to generate your very first ADR.
+
+Continue to **Step 01 — Hello World ADR**, where we’ll create a simple steel thread from prompt → model → ADR.
 
 ```bash
 git checkout step-01-hello-world-guardrails

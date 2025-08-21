@@ -77,8 +77,9 @@ yarn install
 yarn test
 ```
 
-**Expected:** the `Hello World ADR` test **fails** — the output starts with extra text **before** the title (e.g., it
-prints `Here is the ADR:` and then the title). The test requires the **first character** of the response to be `#`.
+**Expected:** the `Hello World ADR` test **fails** — the output includes some extra text before the title (e.g., it
+prints `Here is the ADR:` and then the heading). This failure is expected — it shows the test loop is working and
+catching formatting issues. The goal is to refine the prompt so the very first character of the response is `#`.
 
 ### 3. Edit the prompts (make all tests pass)
 
@@ -147,7 +148,10 @@ Look at the console output from the passing test.
 
 ## ➡️ Next
 
-Continue to **Step 02 — Single-Stage ADR**
+With a working steel thread in place, you’re ready to go further.
+
+Continue to **Step 02 — Single Stage ADR**, where instead of just passing a title, you’ll provide full context — and the
+model will generate both the title and the ADR in one go.
 
 ```bash
 git checkout step-02-single-stage-adr
