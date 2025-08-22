@@ -1,4 +1,4 @@
-# Step 02: Single Stage ADR
+# Step 02: Single-Stage ADR
 
 **Branch**: `step-02-single-stage-adr`  
 **Goal**: Generate a complete ADR (including title) from a context statement, using a local model (Ollama) and the MADR
@@ -25,7 +25,7 @@ By the end of this step, you will be able to:
 
 ## 🧠 Background
 
-**Why this matters:** We're moving from "just generate something" to producing a proper ADR — learning how AI can help
+**Why this matters:** We're moving from _just generate something_ to producing a _proper_ ADR — learning how AI can help
 draft real engineering artefacts.
 
 **Key ideas**
@@ -84,7 +84,7 @@ yarn install
 yarn test
 ```
 
-**Expected:** the `Single Stage ADR` test **fails** — the output includes options, decision, and consequences, but the
+**Expected:** the `Single-Stage ADR` test **fails** — the output includes options, decision, and consequences, but the
 **title is too generic** (e.g., `# Database strategy for new services`). This failure is expected — it shows the the
 test loop is working and nudging you to include a driver/problem (like 'cognitive load' or 'ACID') in the title.
 
@@ -113,42 +113,32 @@ yarn test
 
 ## 🧪 Evaluation
 
-### 1. Run the tests (initial failure)
+### 1. Tests pass
 
 ```bash
 yarn test
 ```
 
-**Passes if:** you see a failing assertion for the **title check**, e.g.:
+**Passes if:** Vitest reports success (e.g., `✓ 5 passed`) and the console shows the generated ADR.
 
-```bash
-FAIL  tests/create-single-stage-adr.test.ts > Single Stage ADR > title includes the chosen option and is a representative problem-solution summary
-AssertionError: Problem: cognitive load, acid, delivery, workload, expert: expected false to be truthy
-```
+### 2. ADR content checks
 
-This confirms the ADR is generated, but the **title is too generic**.
+Look at the console output from the passing test.
 
-### 2. Re-run after editing prompts
+**Passes if:** the ADR contains all required elements:
 
-```bash
-yarn test
-```
-
-**Passes if:** all tests succeed, e.g.:
-
-```bash
-✓ 4 passed
-```
-
-This confirms the ADR now has a valid title (solution + problem), and all required sections are present.
+- **Options:** mentions PostgreSQL, MongoDB, and a “team choose” variant.
+- **Decision:** clearly picks one of those options.
+- **Consequences:** includes at least one starting with **Good, …** and one starting with **Bad, …**.
+- **Title:** short problem-solution summary that contains both the chosen option (e.g., “standardise PostgreSQL”) and at
+  least one problem/driver (e.g., “cognitive load”, “ACID”, “delivery”, “workload”, or “expertise”).
 
 ---
 
 ## ✅ Checklist
 
-- ⬜ I ran `yarn test` and the `Single Stage ADR` test passed
+- ⬜ I ran `yarn test` and the `Single-Stage ADR` test passed
 - ⬜ I saw options, decision, consequences, and a title that includes both the chosen option and a problem/driver
-- ⬜ I did not edit `docs/decisions/adr-template-minimal.md`
 - ⬜ I saw how stricter tests (e.g. title checks) help guide prompt design
 
 ---
