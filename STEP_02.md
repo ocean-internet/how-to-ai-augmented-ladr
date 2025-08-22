@@ -119,7 +119,8 @@ yarn test
 yarn test
 ```
 
-**Passes if:** Vitest reports success (e.g., `✓ 5 passed`) and the console shows the generated ADR.
+**Passes if:** Vitest reports success (e.g., `✓ tests/step-02.test.ts (5 tests)`) and the console shows the generated
+ADR.
 
 ### 2. ADR content checks
 
