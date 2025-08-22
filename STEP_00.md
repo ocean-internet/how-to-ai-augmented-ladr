@@ -213,5 +213,5 @@ With your environment ready, you're set to generate your very first ADR.
 Continue to **Step 01 — Hello World ADR**, where we'll create a simple steel thread from prompt → model → ADR.
 
 ```bash
-git checkout step-01-hello-world-guardrails
+git checkout step-01-hello-world
 ```
