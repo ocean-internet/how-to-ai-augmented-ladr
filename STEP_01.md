@@ -110,7 +110,8 @@ yarn test
 yarn test
 ```
 
-**Passes if:** Vitest reports success (e.g., `✓ 1 passed`) and the console shows the generated ADR.
+**Passes if:** Vitest reports success (e.g., `✓ tests/step-01.test.ts (1 test)`) and the console shows the generated
+ADR.
 
 ### 2. ADR headings present
 
@@ -150,7 +151,7 @@ Look at the console output from the passing test.
 
 With a working steel thread in place, you're ready to go further.
 
-Continue to **Step 02 — Single Stage ADR**, where instead of just passing a title, you'll provide full context — and the
+Continue to **Step 02 — Single-Stage ADR**, where instead of just passing a title, you'll provide full context — and the
 model will generate both the title and the ADR in one go.
 
 ```bash
