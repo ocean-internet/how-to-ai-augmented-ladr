@@ -181,7 +181,7 @@ ollama list | grep llama3:8b
 yarn test
 ```
 
-**Passes if:** Vitest reports success (e.g., `✓ 2 passed`).
+**Passes if:** Vitest reports success (e.g., `✓ tests/step-00.test.ts (3 tests)`).
 
 ---
 
