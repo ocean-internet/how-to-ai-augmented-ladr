@@ -8,7 +8,7 @@ We need to make a decision about our database strategy for new services. The mai
 What's driving this decision is the need to reduce team cognitive load, preserve strong ACID guarantees where required, and avoid unnecessary tool sprawl while still supporting fast delivery. At the same time, we have to deal with mixed workloads — some transaction-heavy, some document-oriented — and our teams don't all have the same level of database expertise.
 `;
 
-describe("Single Stage ADR", () => {
+describe("Single-Stage ADR", () => {
   let adr = "";
   let title = "";
   let options: string[] = [];
@@ -22,14 +22,24 @@ describe("Single Stage ADR", () => {
     options = parsed.options;
     decision = parsed.decision;
     consequences = parsed.consequences;
+  }, 30_000);
+
+  it("produces a single-stage-adr", async () => {
+    // First line is title - e.g. no-preamble
+    expect(adr).toMatch(new RegExp(`^#\\s*`, "i"));
+    // Includes all headings
+    expect(adr).toMatch(/##\s*Context and Problem Statement/i);
+    expect(adr).toMatch(/##\s*Considered Options/i);
+    expect(adr).toMatch(/##\s*Decision Outcome/i);
+    expect(adr).toMatch(/###\s*Consequences/i);
 
     // (Vitest captures stdout but shows it on failure; for success, it keeps logs compact)
     console.log(`
---- Single Stage ADR Output ---
+--- Single-Stage ADR Output ---
 ${adr}
 -------------------------------
-`);
-  }, 30_000);
+      `);
+  });
 
   it("options section mentions Postgres, MongoDB, and a team 'choose' variant", async () => {
     const mappedOptions = options.map(mapOption);
