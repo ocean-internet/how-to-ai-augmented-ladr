@@ -2,7 +2,7 @@
 
 **Branch**: `step-01-hello-world-adr`  
 **Goal**: Generate a "Hello World" ADR using the Markdown Architectural Decision Records (MADR) format with a local
-model (Ollama) from a prompt + ADR template.
+model (Ollama) from a title + prompt + ADR template.
 
 ---
 
